@@ -1,26 +1,26 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: vpozniak <vpozniak@student.42warsaw.pl>    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/07 13:38:55 by vpozniak          #+#    #+#             */
-/*   Updated: 2025/04/07 13:38:56 by vpozniak         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
+// /* ************************************************************************** */
+// /*                                                                            */
+// /*                                                        :::      ::::::::   */
+// /*   get_next_line.c                                    :+:      :+:    :+:   */
+// /*                                                    +:+ +:+         +:+     */
+// /*   By: vpozniak <vpozniak@student.42warsaw.pl>    +#+  +:+       +#+        */
+// /*                                                +#+#+#+#+#+   +#+           */
+// /*   Created: 2025/04/07 13:38:55 by vpozniak          #+#    #+#             */
+// /*   Updated: 2025/04/07 13:38:56 by vpozniak         ###   ########.fr       */
+// /*                                                                            */
+// /* ************************************************************************** */
 
 
 #include "./so_long.h"
 
-//check bytes_read > 0 side
-//line 80 is checking if it is ended cuz of \0 or \n
-// it is tricky cuz if it is \n it iterates 1 more to
-// reach after newline
-// used int deliberately for i's and j's because
-//BUFFER_SIZE has int type by default
-// in after_line and extract_line it checks !stash if the
-// buff filled successfully or not
+// //check bytes_read > 0 side
+// //line 80 is checking if it is ended cuz of \0 or \n
+// // it is tricky cuz if it is \n it iterates 1 more to
+// // reach after newline
+// // used int deliberately for i's and j's because
+// //BUFFER_SIZE has int type by default
+// // in after_line and extract_line it checks !stash if the
+// // buff filled successfully or not
 
 char	*fill_buffer(int fd, char *stash)
 {

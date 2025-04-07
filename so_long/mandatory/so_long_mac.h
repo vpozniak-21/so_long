@@ -6,7 +6,7 @@
 /*   By: vpozniak <vpozniak@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/07 13:39:22 by vpozniak          #+#    #+#             */
-/*   Updated: 2025/04/07 21:47:38 by vpozniak         ###   ########.fr       */
+/*   Updated: 2025/04/07 22:35:18 by vpozniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,9 @@ mlx_int.h and mlx.h, causing a conflict*/
 # include <stdlib.h>
 # include <unistd.h>
 
+#ifndef BUFFER_SIZE
 # define BUFFER_SIZE 1
+#endif
 # define PXL 64
 # define COLLECTIBLES "./textures/WARM.xpm"
 //# define ENEMY "./textures/orc.xpm"- FOR BONUS

@@ -6,7 +6,7 @@
 /*   By: vpozniak <vpozniak@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/07 13:39:18 by vpozniak          #+#    #+#             */
-/*   Updated: 2025/04/07 21:47:31 by vpozniak         ###   ########.fr       */
+/*   Updated: 2025/04/07 23:07:18 by vpozniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,12 @@ mlx_int.h and mlx.h,causing a conflict*/
 # include <unistd.h>
 # include <X11/Xlib.h>
 # include <X11/keysym.h>
+# include <stdio.h>
 
+#ifndef BUFFER_SIZE
 # define BUFFER_SIZE 1
+#endif
+
 # define PXL 64
 # define COLLECTIBLES "./textures/WARM.xpm"
 // # define ENEMY "./textures/orc.xpm"- FOR BONUS
@@ -99,50 +103,50 @@ typedef struct s_game
 	// to control the event loop for mac instead of destroy display
 }			t_game;
 
-// utils.c
-int			ft_strcmp(char *s1, char *s2);
-size_t		ft_strlen(char *s);
-char		*ft_strdup(char *s);
-char		*ft_strjoin(char *s1, char *s2);
-char		*ft_strchr(char *s, int c);
+//utils.c
+int		ft_strcmp(char *s1, char *s2);
+size_t	ft_strlen(char *s);
+char	*ft_strdup(char *s);
+char	*ft_strjoin(char *s1, char *s2);
+char	*ft_strchr(char *s, int c);
 
-// utils2.c
-void		ft_free(t_game *game);
-void		ft_free_exit(char *msg, t_game *game, int code);
-void		ft_putstr(char *str);
-char		*ft_itoa(int n);
+//utils2.c
+void	ft_free(t_game *game);
+void	ft_free_exit(char *msg, t_game *game, int code);
+void	ft_putstr(char *str);
+char	*ft_itoa(int n);
 
-// so_long.c
-void		ft_winloseprint(int is_win);
+//so_long.c
+void	ft_winloseprint(int is_win);
 
-// gnl
-char		*get_next_line(int fd);
+//gnl
+char	*get_next_line(int fd);
 
-// map_check1.c
-void		check_walls(t_game *game);
-void		find_height(t_game *game);
-void		is_rectangular(t_game *game);
-void		init_map(t_game *game);
-void		is_valid(t_game *game);
+//map_check1.c
+void	check_walls(t_game *game);
+void	find_height(t_game *game);
+void	is_rectangular(t_game *game);
+void	init_map(t_game *game);
+void	is_valid(t_game *game);
 
-// map_check2.c
-void		validate_path(t_game *game);
-void		check_path(t_game *game, int y, int x);
-void		set_player_pos(t_game *game);
-void		check_members(t_game *game);
-void		set_exit(t_game *game);
+//map_check2.c
+void	validate_path(t_game *game);
+void	check_path(t_game *game, int y, int x);
+void	set_player_pos(t_game *game);
+void	check_members(t_game *game);
+void	set_exit(t_game *game);
 
-// graphics.c
-void		print_bg(t_game *game);
-void		start_game(t_game *game);
-void		add_images(t_game *game);
-void		print_nonmovings(t_game *game);
-void		print_player(t_game *game, char d);
+//graphics.c
+void	print_bg(t_game *game);
+void	start_game(t_game *game);
+void	add_images(t_game *game);
+void	print_nonmovings(t_game *game);
+void	print_player(t_game *game, char d);
 
-// moves.c
-void		refresh_frame(t_game *game, char d);
-void		move_l_r(t_game *game, int val, char d);
-void		move_u_d(t_game *game, int val, char d);
-void		endgame(t_game *game, int is_win);
+//moves.c
+void	refresh_frame(t_game *game, char d);
+void	move_l_r(t_game *game, int val, char d);
+void	move_u_d(t_game *game, int val, char d);
+void	endgame(t_game *game, int is_win);
 
 #endif
