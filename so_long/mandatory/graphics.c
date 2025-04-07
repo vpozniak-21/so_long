@@ -6,7 +6,7 @@
 /*   By: vpozniak <vpozniak@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/07 13:39:00 by vpozniak          #+#    #+#             */
-/*   Updated: 2025/04/07 13:39:01 by vpozniak         ###   ########.fr       */
+/*   Updated: 2025/04/07 18:14:08 by vpozniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,14 +22,14 @@ void	print_player(t_game *game, char d)
 	// to get the pixel representation from map position to window
 	y = game->p_y * 64;
 	if (d == 'u')
-		mlx_put_image_to_window(game->mlx, game->win, game->img[7], x, y);
+		mlx_put_image_to_window(game->mlx, game->win, game->img[6], x, y);
 	// The img[7] and other indices of the img array are assigned in the add_images function. This function loads images (textures) from .xpm files into the img array using the MiniLibX function mlx_xpm_file_to_image.
 	if (d == 'd')
-		mlx_put_image_to_window(game->mlx, game->win, game->img[6], x, y);
-	if (d == 'r')
 		mlx_put_image_to_window(game->mlx, game->win, game->img[5], x, y);
-	if (d == 'l')
+	if (d == 'r')
 		mlx_put_image_to_window(game->mlx, game->win, game->img[4], x, y);
+	if (d == 'l')
+		mlx_put_image_to_window(game->mlx, game->win, game->img[3], x, y);
 }
 
 void	print_nonmovings(t_game *game)
@@ -48,14 +48,14 @@ void	print_nonmovings(t_game *game)
 			if (game->c_count == game->collected)
 			{
 				game->map[game->e_y][game->e_x] = 'E';
-				mlx_put_image_to_window(mlx, game->win, game->img[2], game->e_x
+				mlx_put_image_to_window(mlx, game->win, game->img[1], game->e_x
 					* 64, game->e_y * 64);
 			}
 			if (game->map[y][x] == '1')
-				mlx_put_image_to_window(mlx, game->win, game->img[8], x * 64, y
+				mlx_put_image_to_window(mlx, game->win, game->img[7], x * 64, y
 					* 64);
 			if (game->map[y][x] == 'C')
-				mlx_put_image_to_window(mlx, game->win, game->img[1], x * 64, y
+				mlx_put_image_to_window(mlx, game->win, game->img[0], x * 64, y
 					* 64);
 		}
 	}
@@ -76,7 +76,7 @@ void	print_bg(t_game *game)
 		xx = 0;
 		while (game->map[y][++x])
 		{
-			mlx_put_image_to_window(game->mlx, game->win, game->img[3], xx, yy);
+			mlx_put_image_to_window(game->mlx, game->win, game->img[2], xx, yy);
 			xx += PXL;
 		}
 		yy += PXL;
@@ -88,17 +88,17 @@ void	add_images(t_game *game)
 	int	pxl;
 
 	pxl = PXL;
-	game->img = malloc(sizeof(void *) * 9);// 9 to be changed
+	game->img = malloc(sizeof(void *) * 8);// 9 to be changed
 	//game->img[0] = mlx_xpm_file_to_image(game->mlx, ENEMY, &pxl, &pxl);// for bonus that i'm not doing
 		// Each call to mlx_xpm_file_to_image allocates memory for an image.
-	game->img[1] = mlx_xpm_file_to_image(game->mlx, COLLECTIBLES, &pxl, &pxl);
-	game->img[2] = mlx_xpm_file_to_image(game->mlx, DOOR, &pxl, &pxl);
-	game->img[3] = mlx_xpm_file_to_image(game->mlx, BG, &pxl, &pxl);
-	game->img[4] = mlx_xpm_file_to_image(game->mlx, P_LEFT, &pxl, &pxl);
-	game->img[5] = mlx_xpm_file_to_image(game->mlx, P_RIGHT, &pxl, &pxl);
-	game->img[6] = mlx_xpm_file_to_image(game->mlx, P_DOWN, &pxl, &pxl);
-	game->img[7] = mlx_xpm_file_to_image(game->mlx, P_UP, &pxl, &pxl);
-	game->img[8] = mlx_xpm_file_to_image(game->mlx, WALL, &pxl, &pxl);
+	game->img[0] = mlx_xpm_file_to_image(game->mlx, COLLECTIBLES, &pxl, &pxl);
+	game->img[1] = mlx_xpm_file_to_image(game->mlx, DOOR, &pxl, &pxl);
+	game->img[2] = mlx_xpm_file_to_image(game->mlx, BG, &pxl, &pxl);
+	game->img[3] = mlx_xpm_file_to_image(game->mlx, P_LEFT, &pxl, &pxl);
+	game->img[4] = mlx_xpm_file_to_image(game->mlx, P_RIGHT, &pxl, &pxl);
+	game->img[5] = mlx_xpm_file_to_image(game->mlx, P_DOWN, &pxl, &pxl);
+	game->img[6] = mlx_xpm_file_to_image(game->mlx, P_UP, &pxl, &pxl);
+	game->img[7] = mlx_xpm_file_to_image(game->mlx, WALL, &pxl, &pxl);
 }
 
 void	start_game(t_game *game)
