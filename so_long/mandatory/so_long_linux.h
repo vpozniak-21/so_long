@@ -6,7 +6,7 @@
 /*   By: vpozniak <vpozniak@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/07 13:39:18 by vpozniak          #+#    #+#             */
-/*   Updated: 2025/04/07 13:39:19 by vpozniak         ###   ########.fr       */
+/*   Updated: 2025/04/07 21:47:31 by vpozniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,8 @@ mlx_int.h and mlx.h,causing a conflict*/
 # include <math.h>
 # include <stdlib.h>
 # include <unistd.h>
+# include <X11/Xlib.h>
+# include <X11/keysym.h>
 
 # define BUFFER_SIZE 1
 # define PXL 64
@@ -66,6 +68,7 @@ mlx_int.h and mlx.h,causing a conflict*/
 # define KEY_S 115
 # define KEY_D 100
 # define WIN_CLOSE 17
+# define KEY_Q 24
 
 typedef struct s_game
 {

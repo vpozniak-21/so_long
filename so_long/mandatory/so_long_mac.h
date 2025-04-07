@@ -6,7 +6,7 @@
 /*   By: vpozniak <vpozniak@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/07 13:39:22 by vpozniak          #+#    #+#             */
-/*   Updated: 2025/04/07 13:39:23 by vpozniak         ###   ########.fr       */
+/*   Updated: 2025/04/07 21:47:38 by vpozniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,7 @@ mlx_int.h and mlx.h, causing a conflict*/
 # define KEY_S 1
 # define KEY_D 2
 # define KEY_ESC 53
+# define KEY_Q 12
 
 typedef struct s_game
 {

@@ -6,10 +6,9 @@
 /*   By: vpozniak <vpozniak@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/07 13:39:27 by vpozniak          #+#    #+#             */
-/*   Updated: 2025/04/07 19:23:57 by vpozniak         ###   ########.fr       */
+/*   Updated: 2025/04/07 22:00:15 by vpozniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #include "./so_long.h"
 
@@ -45,8 +44,8 @@ int	key_hook(int key, t_game *game)
 		move_l_r(game, -1, 'l');
 	else if (key == KEY_RIGHT || key == KEY_D)
 		move_l_r(game, 1, 'r');
-	else if ((key == KEY_ESC) || (key == 12))
-	// if key 12(q) is pressed the the game quits and
+	else if ((key == KEY_ESC) || (key == XK_q))//XK_q - is only for linux and x11 library, on mac can be different 
+	// if key 12(q) on mac or 24 on linux is pressed the the game quits and
 		endgame(game, 0);
 	return (0);
 }

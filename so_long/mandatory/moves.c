@@ -6,7 +6,7 @@
 /*   By: vpozniak <vpozniak@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/07 13:39:13 by vpozniak          #+#    #+#             */
-/*   Updated: 2025/04/07 19:24:31 by vpozniak         ###   ########.fr       */
+/*   Updated: 2025/04/07 21:31:18 by vpozniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	endgame(t_game *game, int is_win)
 	if (game->img)
 	{
 		i = 0;
-		while (i < 9)
+		while (i < 8)
 		{
 			mlx_destroy_image(game->mlx, game->img[i]);
 			i++;
