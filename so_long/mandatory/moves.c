@@ -6,7 +6,7 @@
 /*   By: vpozniak <vpozniak@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/07 13:39:13 by vpozniak          #+#    #+#             */
-/*   Updated: 2025/04/07 14:16:05 by vpozniak         ###   ########.fr       */
+/*   Updated: 2025/04/07 19:24:31 by vpozniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,13 +31,13 @@ void	endgame(t_game *game, int is_win)
 	}
 	if (game->mlx && game->win)
 		mlx_destroy_window(game->mlx, game->win);
-	// if (game->mlx)
-	// {
-	// 	mlx_loop_end(game->mlx);
-	// 	mlx_destroy_display(game->mlx);
-	// 	free(game->mlx);
-	// }
-	game->running = 0;
+	if (game->mlx)
+	{
+		mlx_loop_end(game->mlx);
+		mlx_destroy_display(game->mlx);
+		free(game->mlx);
+	}
+	//game->running = 0;
 	if (is_win == 1)
 		ft_winloseprint(1);
 	else if (is_win == 0)

@@ -6,7 +6,7 @@
 /*   By: vpozniak <vpozniak@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/07 13:39:27 by vpozniak          #+#    #+#             */
-/*   Updated: 2025/04/07 13:39:28 by vpozniak         ###   ########.fr       */
+/*   Updated: 2025/04/07 19:23:57 by vpozniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,14 +69,14 @@ int	main(int ac, char **av)
 		ft_free_exit("ERROR\nGame allocation failure.\n", game, 1);
 	game->m_name = av[1];
 	game->win = NULL;
-	game->running = 1;
+	//game->running = 1;
 	// Initialize the running flag only for mac custom ml_loop
 	is_valid(game);
 	start_game(game);
 	mlx_hook(game->win, 17, 0, close_window_hook, game);
 	mlx_key_hook(game->win, key_hook, game);
-	// mlx_loop(game->mlx); - this is for linux , for mac is a custom mlx_loop
-	while (game->running)
-		mlx_loop(game->mlx);
+	mlx_loop(game->mlx);// - this is for linux , for mac is a custom mlx_loop
+	// while (game->running)
+	// 	mlx_loop(game->mlx);
 	return (0);
 }
