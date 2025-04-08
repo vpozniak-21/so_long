@@ -6,7 +6,7 @@
 /*   By: vpozniak <vpozniak@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/07 13:39:13 by vpozniak          #+#    #+#             */
-/*   Updated: 2025/04/07 21:31:18 by vpozniak         ###   ########.fr       */
+/*   Updated: 2025/04/08 17:51:16 by vpozniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,8 @@
 // mlx_destroy_display
 #include "./so_long.h"
 
-void	endgame(t_game *game, int is_win)
+//void	endgame(t_game *game, int is_win)
+void	endgame(t_game *game)
 {
 	int	i;
 
@@ -38,10 +39,10 @@ void	endgame(t_game *game, int is_win)
 		free(game->mlx);
 	}
 	//game->running = 0;
-	if (is_win == 1)
-		ft_winloseprint(1);
-	else if (is_win == 0)
-		ft_winloseprint(0);
+	// if (is_win == 1)
+	// 	ft_winloseprint(1);
+	// else if (is_win == 0)
+	// 	ft_winloseprint(0);
 	ft_free_exit("", game, 0);
 }
 
@@ -63,7 +64,9 @@ void	move_l_r(t_game *game, int val, char d)
 			map[game->p_y][game->p_x] = 'P';
 			refresh_frame(game, d);
 			sleep(1);
-			endgame(game, 1);
+			//endgame(game, 1);
+			endgame(game);
+
 		}
 		map[game->p_y][game->p_x] = 'P';
 		refresh_frame(game, d);
@@ -88,7 +91,8 @@ void	move_u_d(t_game *game, int val, char d)
 			map[game->p_y + val][game->p_x] = 'P';
 			refresh_frame(game, d);
 			sleep(1);
-			endgame(game, 1);
+			//endgame(game, 1);
+			endgame(game);
 		}
 		map[game->p_y][game->p_x] = 'P';
 		refresh_frame(game, d);

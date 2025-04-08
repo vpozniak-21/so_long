@@ -6,7 +6,7 @@
 /*   By: vpozniak <vpozniak@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/07 13:39:18 by vpozniak          #+#    #+#             */
-/*   Updated: 2025/04/07 23:07:18 by vpozniak         ###   ########.fr       */
+/*   Updated: 2025/04/08 17:47:18 by vpozniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,7 +117,7 @@ void	ft_putstr(char *str);
 char	*ft_itoa(int n);
 
 //so_long.c
-void	ft_winloseprint(int is_win);
+//void	ft_winloseprint(int is_win);
 
 //gnl
 char	*get_next_line(int fd);
@@ -147,6 +147,7 @@ void	print_player(t_game *game, char d);
 void	refresh_frame(t_game *game, char d);
 void	move_l_r(t_game *game, int val, char d);
 void	move_u_d(t_game *game, int val, char d);
-void	endgame(t_game *game, int is_win);
+//void		endgame(t_game *game, int is_win);
+void		endgame(t_game *game);
 
 #endif

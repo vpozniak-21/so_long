@@ -6,33 +6,33 @@
 /*   By: vpozniak <vpozniak@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/07 13:39:27 by vpozniak          #+#    #+#             */
-/*   Updated: 2025/04/07 22:00:15 by vpozniak         ###   ########.fr       */
+/*   Updated: 2025/04/08 17:50:10 by vpozniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./so_long.h"
 
-void	ft_winloseprint(int is_win)
-{
-	char	*line;
-	char	*file;
-	int		fd;
+// void	ft_winloseprint(int is_win)
+// {
+// 	char	*line;
+// 	char	*file;
+// 	int		fd;
 
-	if (is_win == 1)
-		file = "./victory.txt";
-	else if (is_win == 0)
-		file = "./gameover.txt";
-	fd = open(file, O_RDONLY);
-	line = get_next_line(fd);
-	while (line != NULL)
-	{
-		ft_putstr(line);
-		write(1, "\n", 1);
-		free(line);
-		line = get_next_line(fd);
-	}
-	close(fd);
-}
+// 	if (is_win == 1)
+// 		file = "./victory.txt";
+// 	else if (is_win == 0)
+// 		file = "./gameover.txt";
+// 	fd = open(file, O_RDONLY);
+// 	line = get_next_line(fd);
+// 	while (line != NULL)
+// 	{
+// 		ft_putstr(line);
+// 		write(1, "\n", 1);
+// 		free(line);
+// 		line = get_next_line(fd);
+// 	}
+// 	close(fd);
+// }
 
 int	key_hook(int key, t_game *game)
 {
@@ -44,15 +44,17 @@ int	key_hook(int key, t_game *game)
 		move_l_r(game, -1, 'l');
 	else if (key == KEY_RIGHT || key == KEY_D)
 		move_l_r(game, 1, 'r');
-	else if ((key == KEY_ESC) || (key == XK_q))//XK_q - is only for linux and x11 library, on mac can be different 
+	else if ((key == KEY_ESC) || (key == XK_q))//XK_q - is only for linux and x11 library, on mac can be different
 	// if key 12(q) on mac or 24 on linux is pressed the the game quits and
-		endgame(game, 0);
+		endgame(game);
+		//endgame(game, 0);
 	return (0);
 }
 
 int	close_window_hook(t_game *game)
 {
-	endgame(game, 0);
+	//endgame(game, 0);
+	endgame(game);
 	return (0);
 }
 
