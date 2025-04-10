@@ -1,0 +1,28 @@
+NAME = so_long
+CC = cc
+CFLAGS = -Wextra -Wall -Werror  -fsanitize=address -g
+LIBPATH = ./minilibx-mac
+LDFLAGS = -L$(LIBPATH) -lmlx -framework OpenGL -framework AppKit
+SRCS = ./mandatory/get_next_line.c ./mandatory/graphics.c \
+	./mandatory/so_long.c ./mandatory/map_check1.c \
+	./mandatory/map_check2.c ./mandatory/moves.c \
+	./mandatory/utils.c ./mandatory/utils2.c
+
+OBJS = $(SRCS:.c=.o)
+
+$(NAME): $(OBJS)
+	@make -C $(LIBPATH)
+	@$(CC) $(CFLAGS) $(OBJS) $(LDFLAGS) -o $(NAME)
+
+all: $(NAME)
+
+%.o: %.c
+	$(CC) $(CFLAGS)  -c $< -o $@
+
+re: fclean all
+
+clean :
+	rm -rf ./mandatory/*.o
+
+fclean : clean
+	rm -rf $(NAME)
