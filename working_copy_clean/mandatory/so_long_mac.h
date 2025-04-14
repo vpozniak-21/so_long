@@ -6,7 +6,7 @@
 /*   By: vpozniak <vpozniak@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/07 13:39:22 by vpozniak          #+#    #+#             */
-/*   Updated: 2025/04/10 17:25:33 by vpozniak         ###   ########.fr       */
+/*   Updated: 2025/04/14 13:29:58 by vpozniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,6 +89,7 @@ char		*ft_itoa(int n);
 // gnl
 char		*get_next_line(int fd);
 void		ft_bzero(void *s, size_t n);
+char 		*extract_line(char **saved_text);
 
 // map_check1.c
 int			map_validation(t_game *game);

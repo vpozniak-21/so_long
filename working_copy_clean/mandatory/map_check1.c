@@ -6,11 +6,12 @@
 /*   By: vpozniak <vpozniak@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/07 13:39:04 by vpozniak          #+#    #+#             */
-/*   Updated: 2025/04/10 17:03:34 by vpozniak         ###   ########.fr       */
+/*   Updated: 2025/04/14 15:14:04 by vpozniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./so_long.h"
+#include <stdio.h>
 
 int	map_check_if_walls(t_game *game)
 {
@@ -78,6 +79,7 @@ int	map_initialization(t_game *game)
 {
 	char	*line;
 	int		i;
+	// size_t	len;
 
 	i = 0;
 	find_height(game);
@@ -91,6 +93,8 @@ int	map_initialization(t_game *game)
 	{
 		game->map[i] = line;
 		game->temp_map[i] = ft_strdup(line);
+		// printf("Line %d: [%s] (len=%zu)\n", i, game->map[i],
+		ft_strlen(game->map[i]);
 		line = get_next_line(game->fd);
 		i++;
 	}
@@ -98,6 +102,10 @@ int	map_initialization(t_game *game)
 	game->map[i] = NULL;
 	game->temp_map[i] = NULL;
 	game->map_width = (int)ft_strlen(game->map[0]);
+	// len = ft_strlen(game->map[0]);
+	// if (len > 0 && game->map[0][len - 1] == '\n')
+	// 	len--;
+	// game->map_width = len;
 	close(game->fd);
 	map_check_if_rectangular(game);
 	return (0);
